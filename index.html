@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>Shaikh Rabiul Alam - সদস্য জাতীয় নির্বাহী কমিটি</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ================= GOOGLE FONT ================= -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ================= FONT AWESOME ================= -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ================= HEADER ================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.nav {
+  max-width: 1400px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 22px;
+  color: #0b5e3c;
+  letter-spacing: -0.5px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-menu li a:hover {
+  color: #0b5e3c;
+}
+
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #0b5e3c;
+  transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+/* MOBILE MENU TOGGLE */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: #0b5e3c;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* ================= HERO SECTION ================= */
+/* চেঞ্জ করুন: hero ব্যাকগ্রাউন্ড ইমেজ URL */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, rgba(11, 94, 60, 0.9), rgba(15, 118, 75, 0.85)), 
+              url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguNM-hPTg0o6sEbgvmsi6_jwdQuFRhU5VZCoAoYUCvzX0Iq10lveGNfIBhhckZ0bQUhACW-8hI_rzPdxCG19J6mChUZ8QuKI3RXQQKIvxdb9GdrlZAedZRqSv6dC_4gyDzmMhvcL-431pb4Cy-FM-FRUKUUE1kh6RibakdASE4bOVZtYMbasvpcHk5Xoo/s320/website%20banner%20.png") center/cover no-repeat;
+  padding: 140px 24px 100px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1400px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero p {
+  font-size: 22px;
+  margin-top: 12px;
+  font-weight: 400;
+  opacity: 0.95;
+  animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  margin-top: 24px;
+  opacity: 0.9;
+  max-width: 700px;
+  animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= ABOUT SECTION ================= */
+.section {
+  max-width: 1400px;
+  margin: auto;
+  padding: 80px 24px;
+}
+
+.section-title {
+  font-size: 36px;
+  color: #0b5e3c;
+  margin-bottom: 48px;
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #0b5e3c, #0f764b);
+  border-radius: 2px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* চেঞ্জ করুন: প্রোফাইল ইমেজ URL */
+.about-image {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.about-image img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
+}
+
+.about-text h2 {
+  color: #0b5e3c;
+  font-size: 32px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+/* চেঞ্জ করুন: এবাউট টেক্সট */
+.about-text p {
+  line-height: 1.9;
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+/* ================= FOUR POINTS ================= */
+/* চেঞ্জ করুন: পয়েন্টের টেক্সট */
+.points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.point {
+  background: linear-gradient(135deg, #f8faf9 0%, #ffffff 100%);
+  padding: 32px 24px;
+  border-radius: 16px;
+  text-align: center;
+  border: 2px solid #e8f5f0;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: #0b5e3c;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.point:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(11, 94, 60, 0.15);
+  border-color: #0b5e3c;
+}
+
+/* ================= QUOTE SECTION ================= */
+/* চেঞ্জ করুন: কোট ব্যাকগ্রাউন্ড ইমেজ URL */
+.quote {
+  background: linear-gradient(135deg, rgba(11, 94, 60, 0.92), rgba(15, 118, 75, 0.88)), 
+              url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee") center/cover no-repeat fixed;
+  color: #fff;
+  padding: 100px 24px;
+  text-align: center;
+  position: relative;
+}
+
+.quote::before {
+  content: '"';
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 120px;
+  opacity: 0.15;
+  font-family: Georgia, serif;
+}
+
+/* চেঞ্জ করুন: কোট টেক্সট */
+.quote h2 {
+  max-width: 1000px;
+  margin: auto;
+  line-height: 1.8;
+  font-size: 28px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  font-style: italic;
+}
+
+/* ================= CARDS SECTION ================= */
+/* চেঞ্জ করুন: কার্ড ইমেজ এবং টেক্সট */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(11, 94, 60, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card .content {
+  padding: 24px;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* ================= TWO COLUMN SECTION ================= */
+/* চেঞ্জ করুন: লিস্ট আইটেম এবং ডানপাশের টেক্সট */
+.twocol {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.list {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8f5f0;
+}
+
+.list div {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e8f5f0;
+  font-weight: 600;
+  color: #0b5e3c;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.list div:last-child {
+  border-bottom: none;
+}
+
+.list div:hover {
+  background: #f8faf9;
+  padding-left: 32px;
+}
+
+.twocol-content {
+  background: #f8faf9;
+  padding: 32px;
+  border-radius: 16px;
+  border: 2px solid #e8f5f0;
+}
+
+.twocol-content p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: linear-gradient(135deg, #0b5e3c 0%, #0a4d31 100%);
+  color: #fff;
+  padding: 60px 24px 30px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-section h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.footer-section p {
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+/* Contact Info Styles */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.contact-item i {
+  width: 24px;
+  margin-right: 12px;
+  margin-top: 2px;
+  color: #fff;
+}
+
+.contact-item a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+/* Social Media Styles */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.social-link:hover {
+  background: #fff;
+  color: #0b5e3c;
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.social-link.facebook:hover { background: #1877f2; color: #fff; border-color: #1877f2; }
+.social-link.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; }
+.social-link.youtube:hover { background: #ff0000; color: #fff; border-color: #ff0000; }
+.social-link.tiktok:hover { background: #000; color: #fff; border-color: #69c9d0; }
+.social-link.twitter:hover { background: #000; color: #fff; border-color: #000; }
+
+/* Important Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-links a::before {
+  content: '▸';
+  margin-right: 8px;
+  transition: margin-right 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-links a:hover::before {
+  margin-right: 12px;
+}
+
+/* Whatsapp Emergency Button */
+.whatsapp-emergency {
+  display: inline-flex;
+  align-items: center;
+  background: #25d366;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-emergency i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.whatsapp-emergency:hover {
+  background: #20ba5a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+.footer-bottom .developer-credit {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 12px;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 44px;
+  }
+  
+  .about {
+    grid-template-columns: 350px 1fr;
+    gap: 40px;
+  }
+  
+  .twocol {
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 14px 20px;
+  }
+  
+  .logo {
+    font-size: 18px;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-menu.active {
+    max-height: 400px;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .nav-menu li a {
+    display: block;
+    padding: 16px 20px;
+  }
+  
+  .nav-menu li a::after {
+    display: none;
+  }
+  
+  .hero {
+    padding: 100px 20px 70px;
+  }
+  
+  .hero h1 {
+    font-size: 32px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  
+  .section {
+    padding: 60px 20px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .about {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .about-image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .about-text h2 {
+    font-size: 26px;
+  }
+  
+  .points {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .quote h2 {
+    font-size: 22px;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .twocol {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 26px;
+  }
+  
+  .hero p {
+    font-size: 16px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .about-text h2 {
+    font-size: 22px;
+  }
+  
+  .quote {
+    padding: 60px 20px;
+  }
+  
+  .quote h2 {
+    font-size: 19px;
+  }
+  
+  .point {
+    padding: 24px 20px;
+    font-size: 15px;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .whatsapp-emergency {
+    width: 100%;
+    justify-content: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <nav class="nav">
+    <div class="logo">Shaikh Rabiul Alam</div>
+    
+    <!-- MOBILE MENU TOGGLE BUTTON -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <!-- চেঞ্জ করুন: মেনু লিংক গুলি -->
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="/coverage.html">Media Coverage</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="/blogs.html">Blogs</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= HERO SECTION ================= -->
+<!-- চেঞ্জ করুন: হিরো সেকশনের টেক্সট এবং CSS এ ব্যাকগ্রাউন্ড ইমেজ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <h1>শেখ রবিউল আলম </h1>
+    <p>সদস্য জাতীয় নির্বাহী কমিটি – বিএনপি</p>
+    <div class="hero-subtitle">
+      ঢাকা-১০ এর জনগণের সেবায় নিবেদিত | গণতন্ত্র ও ন্যায়বিচারের জন্য প্রতিশ্রুতিবদ্ধ
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT SECTION ================= -->
+<section class="section" id="about">
+  <div class="about">
+    <!-- চেঞ্জ করুন: প্রোফাইল ইমেজ URL -->
+    <div class="about-image">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhapr2qdofa6yS0Baq69UGBUT41s-F9Km8F7mAhXv5kl5AeTbOUrBE2jG1BeITWFUmtHROL5Qw59O5PzWALtVNzhZNb4n4bX8bD4oWd1D0gX91emGL4YN3JySVCFPeegVtsmL3JIzinTy9iDZKWbFQnWs0jYjRkf1iDHlxrOLChRmJUeHtEJg0bRvHMvHM/s320/unnamed.jpg" alt="Shaikh Rabiul Alam">
+    </div>
+    
+    <div class="about-text">
+  <h2>ঢাকা-১০ এর মানুষের জন্য</h2>
+  
+  <p>
+    রাজনীতি আমার কাছে কোনো পেশা নয়, বরং মানুষের অধিকার, ন্যায়বিচার এবং গণতন্ত্র প্রতিষ্ঠার 
+    একটি দায়িত্বপূর্ণ অঙ্গীকার। আমি বিশ্বাস করি - জনগণের পাশে দাঁড়িয়ে, তাদের কথা শুনে এবং 
+    বাস্তবসম্মত সমাধানের মাধ্যমে একটি সুন্দর, নিরাপদ ও উন্নত সমাজ গড়ে তোলাই একজন জনপ্রতিনিধির 
+    প্রধান কর্তব্য।
+  </p>
+  
+  <p>
+    আমি দীর্ঘদিন ধরে রাজনীতির সঙ্গে যুক্ত। ছাত্রজীবন থেকেই গণতান্ত্রিক আন্দোলন, মতপ্রকাশের 
+    স্বাধীনতা এবং মানুষের মৌলিক অধিকার রক্ষার প্রশ্নে সক্রিয় ছিলাম। সেই ধারাবাহিকতায় বাংলাদেশ 
+    জাতীয়তাবাদী দল (বিএনপি)-এর রাজনীতিতে যুক্ত হয়ে তৃণমূল পর্যায় থেকে কাজ করার সুযোগ পেয়েছি। 
+    রাজপথের আন্দোলন, সাংগঠনিক কার্যক্রম এবং মানুষের দুঃখ-দুর্দশায় পাশে দাঁড়ানোর মধ্য দিয়েই 
+    আমার রাজনৈতিক পথচলা।
+  </p>
+  
+  <p>
+    ঢাকা-১০ আসনের প্রতিটি ওয়ার্ড, প্রতিটি মহল্লা এবং এখানকার মানুষের জীবনযাত্রা, সমস্যা ও 
+    সম্ভাবনা সম্পর্কে আমি অবগত। যানজট, নাগরিক সেবা, শিক্ষা, স্বাস্থ্য, কর্মসংস্থান এবং নিরাপত্তা - 
+    এই বিষয়গুলো ঢাকার মানুষের নিত্যদিনের বাস্তবতা। আমি বিশ্বাস করি, পরিকল্পিত নগর ব্যবস্থাপনা, 
+    জবাবদিহিমূলক প্রশাসন এবং জনপ্রতিনিধির সক্রিয় ভূমিকার মাধ্যমেই এসব সমস্যার টেকসই সমাধান সম্ভব।
+  </p>
+  
+  <p>
+    আমি রাজনীতিতে সংযম, ভদ্রতা ও যুক্তিকে গুরুত্ব দিই। প্রতিপক্ষের সঙ্গে মতভেদ থাকলেও 
+    পারস্পরিক শ্রদ্ধা ও গণতান্ত্রিক আচরণ বজায় রাখা আমার নীতিগত অবস্থান। রাজনীতি মানে কেবল 
+    ক্ষমতা নয় - রাজনীতি মানে সেবা, ত্যাগ এবং দায়বদ্ধতা। এই বিশ্বাস থেকেই আমি সবসময় সাধারণ 
+    মানুষের কথা বলার চেষ্টা করি।
+  </p>
+  
+  <p>
+    আমার লক্ষ্য একটি মানবিক, গণতান্ত্রিক ও বৈষম্যহীন বাংলাদেশ গড়ে তোলা, যেখানে আইনের শাসন 
+    নিশ্চিত হবে, তরুণরা পাবে যোগ্যতার ভিত্তিতে সুযোগ, এবং নাগরিকরা ভয়ের নয় - আস্থার সঙ্গে 
+    রাষ্ট্রের সঙ্গে যুক্ত থাকবে। ইনশাআল্লাহ, আপনাদের ভালোবাসা, দোয়া ও সহযোগিতায় সেই লক্ষ্য 
+    অর্জনের পথেই আমি অগ্রসর হতে চাই।
+  </p>
+</div>
+</div>
+</section>
+
+<!-- ================= FOUR POINTS ================= -->
+<section class="section" style="padding-top: 0;">
+  <!-- চেঞ্জ করুন: পয়েন্টের টেক্সট -->
+  <div class="points">
+    <div class="point">
+      <i class="fas fa-fist-raised" style="font-size: 32px; margin-bottom: 12px; display: block;"></i>
+      আন্দোলন ও সংগ্রামে অংশগ্রহণ
+    </div>
+    <div class="point">
+      <i class="fas fa-hands-helping" style="font-size: 32px; margin-bottom: 12px; display: block;"></i>
+      সামাজিক উদ্যোগ ও সহায়তা
+    </div>
+    <div class="point">
+      <i class="fas fa-users" style="font-size: 32px; margin-bottom: 12px; display: block;"></i>
+      সংগঠনিক দায়িত্ব পালন
+    </div>
+    <div class="point">
+      <i class="fas fa-city" style="font-size: 32px; margin-bottom: 12px; display: block;"></i>
+      এলাকার উন্নয়ন কার্যক্রম
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUOTE SECTION ================= -->
+<!-- চেঞ্জ করুন: কোট টেক্সট এবং CSS এ ব্যাকগ্রাউন্ড ইমেজ -->
+<section class="quote">
+  <h2>
+    রাজনীতি আমার কাছে ক্ষমতার মাধ্যম নয়,<br>
+    এটি মানুষের অধিকার রক্ষা ও ন্যায়বিচার প্রতিষ্ঠার একটি দায়িত্ব।
+  </h2>
+</section>
+
+<!-- ================= CARDS SECTION ================= -->
+<section class="section" id="media">
+  <h2 class="section-title">জনগণ, রাজনীতি ও বাস্তবতা</h2>
+  
+  <!-- চেঞ্জ করুন: কার্ড ইমেজ URL এবং টেক্সট -->
+  <div class="cards">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=600" alt="গণতান্ত্রিক আন্দোলন">
+      <div class="content">
+        <strong>গণতান্ত্রিক আন্দোলন</strong><br>
+        দেশে গণতন্ত্র পুনঃপ্রতিষ্ঠার জন্য নিরলস সংগ্রাম চালিয়ে যাচ্ছি আমরা।
+      </div>
+    </div>
+    
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?w=600" alt="জনসভা ও সমাবেশ">
+      <div class="content">
+        <strong>জনসভা ও সমাবেশ</strong><br>
+        জনগণের সাথে সরাসরি যোগাযোগ রেখে তাদের সমস্যা সমাধানে প্রতিশ্রুতিবদ্ধ।
+      </div>
+    </div>
+    
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?w=600" alt="সামাজিক কর্মসূচি">
+      <div class="content">
+        <strong>সামাজিক কর্মসূচি</strong><br>
+        শিক্ষা, স্বাস্থ্য ও কল্যাণমূলক কার্যক্রমে নিয়মিত অংশগ্রহণ করছি।
+      </div>
+    </div>
+    
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600" alt="যুব উন্নয়ন">
+      <div class="content">
+        <strong>যুব উন্নয়ন কর্মসূচি</strong><br>
+        তরুণ প্রজন্মের কর্মসংস্থান ও দক্ষতা উন্নয়নে বিশেষ মনোযোগ দিচ্ছি।
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TWO COLUMN SECTION ================= -->
+<section class="section">
+  <h2 class="section-title">একসাথে উন্নত ঢাকা-১০</h2>
+  
+  <div class="twocol">
+    <!-- চেঞ্জ করুন: লিস্ট আইটেম -->
+    <div class="list">
+      <div class="tab-item active" onclick="showTabContent(0)">
+        <i class="fas fa-graduation-cap" style="margin-right: 8px;"></i> শিক্ষা
+      </div>
+      <div class="tab-item" onclick="showTabContent(1)">
+        <i class="fas fa-heartbeat" style="margin-right: 8px;"></i> স্বাস্থ্য
+      </div>
+      <div class="tab-item" onclick="showTabContent(2)">
+        <i class="fas fa-briefcase" style="margin-right: 8px;"></i> কর্মসংস্থান
+      </div>
+      <div class="tab-item" onclick="showTabContent(3)">
+        <i class="fas fa-shield-alt" style="margin-right: 8px;"></i> নিরাপত্তা
+      </div>
+      <div class="tab-item" onclick="showTabContent(4)">
+        <i class="fas fa-road" style="margin-right: 8px;"></i> অবকাঠামো
+      </div>
+      <div class="tab-item" onclick="showTabContent(5)">
+        <i class="fas fa-handshake" style="margin-right: 8px;"></i> গণতন্ত্র
+      </div>
+    </div>
+    
+    <!-- চেঞ্জ করুন: ডানপাশের ডাইনামিক কন্টেন্ট -->
+    <div class="twocol-content" id="dynamicContent">
+      <!-- কন্টেন্ট এখানে ডাইনামিকভাবে লোড হবে -->
+      <h3 style="color: #0b5e3c; margin-bottom: 20px;">শিক্ষা উন্নয়ন পরিকল্পনা</h3>
+      <p>
+        <strong>শিক্ষা:</strong> প্রতিটি শিশুর জন্য মানসম্মত শিক্ষার ব্যবস্থা করা এবং শিক্ষা প্রতিষ্ঠানগুলোর উন্নয়ন নিশ্চিত করা আমাদের প্রথম অগ্রাধিকার।
+      </p>
+      <p>
+        আমরা ঢাকা-১০ এলাকায় আধুনিক শিক্ষাপ্রতিষ্ঠান গড়ে তুলতে চাই, যেখানে প্রযুক্তি নির্ভর শিক্ষাব্যবস্থা চালু হবে। সরকারি স্কুল-কলেজগুলোর অবকাঠামো উন্নয়ন এবং শিক্ষক প্রশিক্ষণের উপর বিশেষ গুরুত্ব দেওয়া হবে।
+      </p>
+      <p>
+        বৃত্তিমূলক শিক্ষাকে প্রাধান্য দেওয়া হবে যাতে তরুণরা চাকরির পাশাপাশি স্ব-কর্মসংস্থান তৈরি করতে পারে। মাদ্রাসা শিক্ষাকে যুগোপযোগী করে আধুনিক বিজ্ঞান ও প্রযুক্তি শিক্ষার সাথে সংযুক্ত করা হবে।
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: 'Noto Sans Bengali', sans-serif;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0b5e3c;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.twocol {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ট্যাব স্টাইল */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-right: 2px solid #f0f0f0;
+  padding-right: 20px;
+}
+
+.tab-item {
+  padding: 16px 20px;
+  cursor: pointer;
+  font-size: 17px;
+  color: #333;
+  border-left: 4px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+  margin-bottom: 8px;
+}
+
+.tab-item:hover {
+  background: #e8f5e8;
+  transform: translateX(5px);
+}
+
+.tab-item.active {
+  background: #e8f5e8;
+  color: #0b5e3c;
+  font-weight: 600;
+  border-left: 4px solid #0b5e3c;
+  box-shadow: 0 4px 12px rgba(11, 94, 60, 0.1);
+}
+
+.tab-item i {
+  width: 24px;
+  text-align: center;
+}
+
+/* কন্টেন্ট স্টাইল */
+.twocol-content {
+  animation: fadeIn 0.4s ease;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  min-height: 400px;
+}
+
+.twocol-content h3 {
+  font-size: 28px;
+  color: #0b5e3c;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.twocol-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+.twocol-content strong {
+  color: #0b5e3c;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* রেসপন্সিভ ডিজাইন */
+@media (max-width: 768px) {
+  .twocol {
+    grid-template-columns: 1fr;
+  }
+  
+  .list {
+    border-right: none;
+    border-bottom: 2px solid #f0f0f0;
+    padding-right: 0;
+    padding-bottom: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .tab-item {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .twocol-content h3 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 15px;
+  }
+  
+  .tab-item {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+  
+  .twocol-content {
+    padding: 15px;
+  }
+}
+</style>
+
+<script>
+// ট্যাব কন্টেন্ট ডাটা
+const tabContents = [
+  {
+    title: "শিক্ষা উন্নয়ন পরিকল্পনা",
+    content: `
+      <p><strong>শিক্ষা:</strong> প্রতিটি শিশুর জন্য মানসম্মত শিক্ষার ব্যবস্থা করা এবং শিক্ষা প্রতিষ্ঠানগুলোর উন্নয়ন নিশ্চিত করা আমাদের প্রথম অগ্রাধিকার।</p>
+      <p>আমরা ঢাকা-১০ এলাকায় আধুনিক শিক্ষাপ্রতিষ্ঠান গড়ে তুলতে চাই, যেখানে প্রযুক্তি নির্ভর শিক্ষাব্যবস্থা চালু হবে। সরকারি স্কুল-কলেজগুলোর অবকাঠামো উন্নয়ন এবং শিক্ষক প্রশিক্ষণের উপর বিশেষ গুরুত্ব দেওয়া হবে।</p>
+      <p>বৃত্তিমূলক শিক্ষাকে প্রাধান্য দেওয়া হবে যাতে তরুণরা চাকরির পাশাপাশি স্ব-কর্মসংস্থান তৈরি করতে পারে। মাদ্রাসা শিক্ষাকে যুগোপযোগী করে আধুনিক বিজ্ঞান ও প্রযুক্তি শিক্ষার সাথে সংযুক্ত করা হবে।</p>
+      <p>বিশেষ চাহিদা সম্পন্ন শিশুদের জন্য বিশেষায়িত শিক্ষা ব্যবস্থা এবং দরিদ্র মেধাবী শিক্ষার্থীদের জন্য বৃত্তি ও উপবৃত্তির ব্যবস্থা করা হবে।</p>
+    `
+  },
+  {
+    title: "স্বাস্থ্য সেবা উন্নয়ন",
+    content: `
+      <p><strong>স্বাস্থ্য:</strong> সবার জন্য সাশ্রয়ী এবং মানসম্পন্ন স্বাস্থ্যসেবা নিশ্চিত করা। হাসপাতাল ও ক্লিনিকের সুবিধা বৃদ্ধি করা।</p>
+      <p>ঢাকা-১০ এলাকায় কমিউনিটি ক্লিনিক ও হেলথ কমপ্লেক্সের সংখ্যা বৃদ্ধি করা হবে। প্রতিটি ওয়ার্ডে অন্তত একটি করে প্রাথমিক স্বাস্থ্যকেন্দ্র স্থাপন করা হবে।</p>
+      <p>বয়স্ক নাগরিকদের জন্য বিশেষ স্বাস্থ্য সেবা, নারী ও শিশু স্বাস্থ্য এবং মানসিক স্বাস্থ্য সেবাকে অগ্রাধিকার দেওয়া হবে। স্বাস্থ্য সচেতনতা বৃদ্ধির জন্য নিয়মিত কর্মশালা ও ক্যাম্পেইন পরিচালনা করা হবে।</p>
+      <p>জরুরি স্বাস্থ্য সেবার জন্য এম্বুলেন্স সার্ভিস ও হেল্পলাইন চালু করা হবে। স্বাস্থ্যসেবার মান নিশ্চিত করতে নাগরিক কমিটি গঠন করা হবে।</p>
+    `
+  },
+  {
+    title: "কর্মসংস্থান সৃষ্টি",
+    content: `
+      <p><strong>কর্মসংস্থান:</strong> যুব সমাজের জন্য কর্মসংস্থানের সুযোগ সৃষ্টি এবং দক্ষতা উন্নয়ন প্রশিক্ষণের ব্যবস্থা করা।</p>
+      <p>তরুণদের জন্য বিভিন্ন বৃত্তিমূলক প্রশিক্ষণ কেন্দ্র প্রতিষ্ঠা করা হবে। আইটি, হসপিটালিটি, গার্মেন্টস, ইলেকট্রিক্যাল এবং অন্যান্য চাহিদাসম্পন্ন সেক্টরে প্রশিক্ষণের ব্যবস্থা করা হবে।</p>
+      <p>ক্ষুদ্র ও মাঝারি উদ্যোক্তাদের জন্য সহজ শর্তে ঋণের ব্যবস্থা করা হবে। স্থানীয় ব্যবসায়ীদের প্রশিক্ষণ এবং বাজার সংযোগ তৈরি করা হবে।</p>
+      <p>নারী উদ্যোক্তা তৈরির বিশেষ প্রকল্প গ্রহণ করা হবে। হোম-বেসড কাজের সুযোগ তৈরি এবং প্রযুক্তি ভিত্তিক ফ্রিল্যান্সিং প্রশিক্ষণ দেওয়া হবে।</p>
+    `
+  },
+  {
+    title: "নাগরিক নিরাপত্তা",
+    content: `
+      <p><strong>নিরাপত্তা:</strong> এলাকার শান্তি-শৃঙ্খলা রক্ষা এবং নাগরিকদের নিরাপত্তা নিশ্চিত করা।</p>
+      <p>সিসি ক্যামেরা বসিয়ে এলাকার মূল সড়ক ও গুরুত্বপূর্ণ স্থানগুলোর সার্বক্ষণিক নজরদারির ব্যবস্থা করা হবে। নাগরিক-পুলিশ সহযোগিতা জোরদার করা হবে।</p>
+      <p>মহিলা ও শিশু নিরাপত্তার বিশেষ উদ্যোগ গ্রহণ করা হবে। রাতের বেলা নারীদের নিরাপদ চলাচলের জন্য বিশেষ ট্রান্সপোর্ট সার্ভিস চালু করা হবে।</p>
+      <p>যৌন হয়রানি ও নারী নির্যাতন প্রতিরোধে সচেতনতা কর্মসূচি গ্রহণ করা হবে। নিরাপত্তা সম্পর্কিত অভিযোগ দ্রুত নিষ্পত্তির জন্য বিশেষ কমিটি গঠন করা হবে।</p>
+    `
+  },
+  {
+    title: "অবকাঠামো উন্নয়ন",
+    content: `
+      <p><strong>অবকাঠামো:</strong> রাস্তাঘাট, নিকাশি ব্যবস্থা এবং অন্যান্য মৌলিক সুবিধার উন্নয়ন করা।</p>
+      <p>ঢাকা-১০ এলাকার সংকীর্ণ ও ভাঙা রাস্তাগুলো প্রশস্ত ও সংস্কার করা হবে। ড্রেনেজ সিস্টেম আধুনিকায়ন করে বন্যা ও জলাবদ্ধতা প্রতিরোধ করা হবে।</p>
+      <p>পার্ক, শিশুদের খেলার মাঠ এবং গণশৌচাগার নির্মাণ করা হবে। সড়ক বাতির সংখ্যা বৃদ্ধি করে রাতের সময় চলাচল নিরাপদ করা হবে।</p>
+      <p>পরিবেশ বান্ধব বর্জ্য ব্যবস্থাপনা চালু করা হবে। রিসাইক্লিং প্ল্যান্ট স্থাপন এবং প্লাস্টিক বর্জ্য নিয়ন্ত্রণে বিশেষ উদ্যোগ গ্রহণ করা হবে।</p>
+    `
+  },
+  {
+    title: "গণতন্ত্র ও নাগরিক অধিকার",
+    content: `
+      <p><strong>গণতন্ত্র:</strong> মতপ্রকাশের স্বাধীনতা, ন্যায়বিচার এবং নাগরিক অধিকার সুরক্ষা করা।</p>
+      <p>স্থানীয় প্রশাসনে নাগরিকদের অংশগ্রহণ নিশ্চিত করা হবে। ওয়ার্ড পর্যায়ে নাগরিক ফোরাম গঠন করে সরাসরি মতবিনিময়ের ব্যবস্থা করা হবে।</p>
+      <p>তরুণদের রাজনৈতিক শিক্ষা ও নেতৃত্ব বিকাশের সুযোগ দেওয়া হবে। নারীর রাজনৈতিক অংশগ্রহণ বৃদ্ধির জন্য বিশেষ পদক্ষেপ গ্রহণ করা হবে।</p>
+      <p>নাগরিক সেবা পাওয়ার ক্ষেত্রে স্বচ্ছতা ও জবাবদিহিতা নিশ্চিত করা হবে। অভিযোগ নিষ্পত্তির জন্য অনলাইন ও অফলাইন সিস্টেম চালু করা হবে।</p>
+    `
+  }
+];
+
+// ট্যাব কন্টেন্ট দেখানোর ফাংশন
+function showTabContent(index) {
+  // সব ট্যাব থেকে active ক্লাস রিমুভ
+  const tabItems = document.querySelectorAll('.tab-item');
+  tabItems.forEach(item => {
+    item.classList.remove('active');
+  });
+  
+  // নির্বাচিত ট্যাবে active ক্লাস অ্যাড
+  tabItems[index].classList.add('active');
+  
+  // কন্টেন্ট আপডেট
+  const contentDiv = document.getElementById('dynamicContent');
+  contentDiv.innerHTML = `
+    <h3 style="color: #0b5e3c; margin-bottom: 20px;">${tabContents[index].title}</h3>
+    ${tabContents[index].content}
+  `;
+  
+  // অ্যানিমেশন ট্রিগার
+  contentDiv.style.animation = 'none';
+  setTimeout(() => {
+    contentDiv.style.animation = 'fadeIn 0.4s ease';
+  }, 10);
+}
+
+// পেজ লোড হলে প্রথম ট্যাব অ্যাক্টিভেট
+document.addEventListener('DOMContentLoaded', function() {
+  showTabContent(0);
+});
+</script>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="footer-container">
+    <div class="footer-grid">
+      
+      <!-- ABOUT SECTION -->
+      <div class="footer-section">
+        <h3>Shaikh Rabiul Alam</h3>
+        <p>
+          সদস্য জাতীয় নির্বাহী কমিটি – বিএনপি<br>
+          ঢাকা-১০ এর জনগণের সেবায় নিবেদিত
+        </p>
+        <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
+          © <span id="currentYear"></span> Shaikh Rabiul Alam<br>
+          All Rights Reserved
+        </p>
+      </div>
+
+      <!-- CONTACT SECTION -->
+      <!-- চেঞ্জ করুন: নিচের ঠিকানা, ইমেইল এবং ফোন নম্বর -->
+      <div class="footer-section">
+        <h3>Contact</h3>
+        
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            Planners Tower, 3rd Floor<br>
+            1215 Dhaka, Bangladesh
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:shaikhrabiulalamofficial@gmail.com">
+            shaikhrabiulalamofficial@gmail.com
+          </a>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <a href="tel:+8801728555497">
+            +880 1728-555-497
+          </a>
+        </div>
+
+        <!-- চেঞ্জ করুন: হোয়াটসঅ্যাপ নম্বর (ইমারজেন্সি) -->
+        <a href="https://wa.me/8801728555497" target="_blank" class="whatsapp-emergency">
+          <i class="fab fa-whatsapp"></i>
+          Emergency WhatsApp
+        </a>
+      </div>
+
+      <!-- SOCIAL MEDIA SECTION -->
+      <!-- চেঞ্জ করুন: নিচের সোশ্যাল মিডিয়া লিংকগুলি -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <p style="margin-bottom: 16px;">আমাদের সাথে যুক্ত থাকুন সোশ্যাল মিডিয়ায়</p>
+        
+        <div class="social-links">
+          <a href="https://www.facebook.com/rabibnpofficials/" target="_blank" class="social-link facebook" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          
+          <a href="https://www.instagram.com/shaikhrabiulalam/" target="_blank" class="social-link instagram" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@shaikhrabiulalam" target="_blank" class="social-link youtube" title="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          
+          <a href="https://www.tiktok.com/@shaikhrabiulalam" target="_blank" class="social-link tiktok" title="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          
+          <a href="https://twitter.com/shaikhrabiulalam" target="_blank" class="social-link twitter" title="X (Twitter)">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- IMPORTANT LINKS SECTION -->
+      <!-- চেঞ্জ করুন: নিচের গুরুত্বপূর্ণ লিংকগুলি -->
+      <div class="footer-section">
+        <h3>Important Links</h3>
+        
+        <ul class="footer-links">
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#media">Media Coverage</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#blogs">Blogs</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+      <p>
+        <i class="fas fa-heart" style="color: #ff6b6b;"></i> 
+        জনগণের সেবায় প্রতিশ্রুতিবদ্ধ
+      </p>
+      <p class="developer-credit">
+        Developed & Maintained with Care
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// মোবাইল মেনু টগল ফাংশন
+function toggleMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('active');
+}
+
+// অটোমেটিক বর্তমান বছর আপডেট
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+// স্মুথ স্ক্রলিং
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && href !== '') {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        // মোবাইল মেনু বন্ধ করা
+        const navMenu = document.getElementById('navMenu');
+        if (navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+        }
+      }
+    }
+  });
+});
+
+// স্ক্রল করলে হেডার স্টাইল পরিবর্তন
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  const currentScroll = window.pageYOffset;
+  
+  if (currentScroll > 100) {
+    header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.12)';
+  } else {
+    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+  }
+  
+  lastScroll = currentScroll;
+});
+</script>
+
+</body>
+</html>

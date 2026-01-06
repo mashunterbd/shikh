@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Shaikh Rabiul Alam</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  background: #f8f9fa;
+  color: #333;
+}
+
+/* ================= HEADER ================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.nav {
+  max-width: 1400px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 22px;
+  color: #0b5e3c;
+  letter-spacing: -0.5px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-menu li a:hover {
+  color: #0b5e3c;
+}
+
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #0b5e3c;
+  transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+.nav-menu li a.active {
+  color: #0b5e3c;
+  font-weight: 600;
+}
+
+.nav-menu li a.active::after {
+  width: 100%;
+}
+
+/* MOBILE MENU TOGGLE */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: #0b5e3c;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Main Content */
+.main-content {
+  background: linear-gradient(135deg, #0b5e3c 0%, #0f764b 100%);
+  min-height: calc(100vh - 70px);
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.header-section {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeInDown 0.8s ease;
+}
+
+.header-section h1 {
+  font-size: 48px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.header-section p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.95);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Contact Cards */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.contact-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  animation: fadeInUp 0.8s ease;
+}
+
+.contact-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.contact-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+}
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  box-shadow: 0 8px 20px rgba(255,140,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover .icon-circle {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.icon-circle i {
+  font-size: 35px;
+  color: #fff;
+}
+
+.contact-card h3 {
+  font-size: 20px;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.contact-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.contact-card a {
+  color: #0b5e3c;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.contact-card a:hover {
+  color: #ff8c00;
+  transform: translateX(3px);
+}
+
+/* Contact Form Section */
+.form-section {
+  background: #fff;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+  animation: fadeInUp 0.8s ease 0.6s backwards;
+  margin-bottom: 50px;
+}
+
+.form-section h2 {
+  font-size: 32px;
+  color: #0b5e3c;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.form-section .subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 15px 18px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: 'Noto Sans Bengali', sans-serif;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #0b5e3c;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(11, 94, 60, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #0b5e3c 0%, #0f764b 100%);
+  color: #fff;
+  padding: 18px 50px;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: block;
+  margin: 30px auto 0;
+  box-shadow: 0 8px 20px rgba(11, 94, 60, 0.3);
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(11, 94, 60, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Map Section */
+.map-section {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+  animation: fadeInUp 0.8s ease 0.8s backwards;
+}
+
+.map-section h2 {
+  font-size: 28px;
+  color: #0b5e3c;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.map-container {
+  width: 100%;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Embed Map Responsive Styles */
+.embed-map-responsive {
+  position: relative;
+  text-align: right;
+  width: 100%;
+  height: 0;
+  padding-bottom: 66.66666666666666%;
+}
+
+.embed-map-container {
+  overflow: hidden;
+  background: none !important;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.embed-map-frame {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Success Message */
+.success-message {
+  display: none;
+  background: #d4edda;
+  color: #155724;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: center;
+  border: 2px solid #c3e6cb;
+  animation: slideIn 0.5s ease;
+}
+
+.success-message.show {
+  display: block;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* ট্যাবলেট */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* মোবাইল */
+@media (max-width: 768px) {
+  /* হেডার রেসপন্সিভ */
+  .nav {
+    padding: 14px 20px;
+  }
+  
+  .logo {
+    font-size: 18px;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-menu.active {
+    max-height: 400px;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .nav-menu li a {
+    display: block;
+    padding: 16px 20px;
+  }
+  
+  .nav-menu li a::after {
+    display: none;
+  }
+  
+  /* মেইন কন্টেন্ট */
+  .main-content {
+    padding: 20px 15px;
+  }
+
+  .header-section h1 {
+    font-size: 32px;
+  }
+
+  .header-section p {
+    font-size: 16px;
+  }
+
+  .contact-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .form-section {
+    padding: 30px 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .map-container {
+    height: 300px;
+  }
+}
+
+/* ছোট মোবাইল */
+@media (max-width: 480px) {
+  .header-section h1 {
+    font-size: 28px;
+  }
+
+  .form-section h2 {
+    font-size: 24px;
+  }
+
+  .icon-circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .icon-circle i {
+    font-size: 30px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .map-section {
+    padding: 20px 15px;
+  }
+  
+  .map-section h2 {
+    font-size: 24px;
+  }
+}
+</style>
+</head>
+
+<body>
+<!-- ================= HEADER ================= -->
+<header>
+  <nav class="nav">
+    <div class="logo">Shaikh Rabiul Alam</div>
+    
+    <!-- MOBILE MENU TOGGLE BUTTON -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <!-- মেনু লিংক -->
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">About Me</a></li>
+      <li><a href="media.html">Media Coverage</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= MAIN CONTENT ================= -->
+<div class="main-content">
+  <div class="container">
+    
+    <!-- Header Section -->
+    <div class="header-section">
+      <h1>যোগাযোগ করুন</h1>
+      <p>
+        আপনার মতামত, পরামর্শ বা সহযোগিতার জন্য আমাদের সাথে যোগাযোগ করুন। 
+        আমরা সর্বদা জনগণের সেবায় প্রস্তুত।
+      </p>
+    </div>
+
+    <!-- Contact Cards -->
+    <div class="contact-cards">
+      
+      <!-- Address Card -->
+      <div class="contact-card">
+        <div class="icon-circle">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <h3>আমাদের ঠিকানা</h3>
+        <p>Planners Tower, 3rd Floor</p>
+        <p>1215 Dhaka, Bangladesh</p>
+        <a href="#map" class="view-map">
+          <i class="fas fa-map-marked-alt"></i> ম্যাপ দেখুন
+        </a>
+      </div>
+
+      <!-- Email Card -->
+      <div class="contact-card">
+        <div class="icon-circle">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3>ইমেইল করুন</h3>
+        <p><a href="mailto:shaikhrabiulalamofficial@gmail.com">shaikhrabiulalamofficial@gmail.com</a></p>
+        <p style="margin-top: 10px; font-size: 13px; color: #999;">২৪ ঘণ্টার মধ্যে উত্তর দেওয়া হবে</p>
+      </div>
+
+      <!-- Phone Card -->
+      <div class="contact-card">
+        <div class="icon-circle">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <h3>ফোন করুন</h3>
+        <p><a href="tel:+8801728555497">+880 1728-555-497</a></p>
+        <p style="margin-top: 10px; font-size: 13px; color: #999;">সকাল ৯টা - রাত ৮টা</p>
+        <a href="https://wa.me/8801728555497" target="_blank" style="color: #25D366; font-weight: 600;">
+          <i class="fab fa-whatsapp"></i> WhatsApp এ লিখুন
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="form-section">
+      <h2>আপনার বার্তা পাঠান</h2>
+      <p class="subtitle">নিচের ফর্মটি পূরণ করে আপনার মতামত বা প্রশ্ন আমাদের জানান</p>
+      
+      <form id="contactForm">
+        <div class="form-grid">
+          
+          <div class="form-group">
+            <label for="name">আপনার নাম *</label>
+            <input type="text" id="name" name="name" placeholder="পুরো নাম লিখুন" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">ইমেইল *</label>
+            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">ফোন নম্বর *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+880 1XXX-XXXXXX" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">বিষয়</label>
+            <select id="subject" name="subject">
+              <option value="">একটি বিষয় নির্বাচন করুন</option>
+              <option value="general">সাধারণ জিজ্ঞাসা</option>
+              <option value="support">সহায়তার জন্য</option>
+              <option value="complaint">অভিযোগ</option>
+              <option value="suggestion">পরামর্শ</option>
+              <option value="political">রাজনৈতিক বিষয়</option>
+              <option value="other">অন্যান্য</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="message">আপনার বার্তা *</label>
+            <textarea id="message" name="message" placeholder="এখানে আপনার বার্তা লিখুন..." required></textarea>
+          </div>
+
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-paper-plane" style="margin-right: 10px;"></i>
+          বার্তা পাঠান
+        </button>
+
+        <div class="success-message" id="successMessage">
+          <i class="fas fa-check-circle" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>
+          <strong>ধন্যবাদ!</strong> আপনার বার্তা সফলভাবে পাঠানো হয়েছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।
+        </div>
+      </form>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-section" id="map">
+      <h2>আমাদের অবস্থান</h2>
+      <div class="map-container">
+        <!-- Google Maps Embed - Planners Tower, Dhaka -->
+        <div class="embed-map-responsive">
+          <div class="embed-map-container">
+            <iframe 
+              class="embed-map-frame" 
+              frameborder="0" 
+              scrolling="no" 
+              marginheight="0" 
+              marginwidth="0" 
+              src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Planners%20Tower%2C%203rd%20Floor%20%201215%20Dhaka%2C%20Bangladesh&t=&z=12&ie=UTF8&iwloc=B&output=embed"
+              allowfullscreen="" 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ================= HEADER JS =================
+// মোবাইল মেনু টগল ফাংশন
+function toggleMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('active');
+}
+
+// মোবাইল মেনুতে ক্লিক করলে মেনু বন্ধ করা
+document.querySelectorAll('.nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    const navMenu = document.getElementById('navMenu');
+    if (navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+    }
+  });
+});
+
+// স্মুথ স্ক্রলিং ফর ইন-পেইজ লিংক
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href.startsWith('#') && href !== '#') {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  });
+});
+
+// ================= CONTACT FORM JS =================
+// Form Submission Handler
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Get form values
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const subject = document.getElementById('subject').value;
+  const message = document.getElementById('message').value;
+  
+  // Validate form
+  if (!name || !email || !phone || !message) {
+    alert('দয়া করে সব প্রয়োজনীয় তথ্য পূরণ করুন।');
+    return;
+  }
+  
+  // Here you would normally send the data to a server
+  // For demo purposes, we'll just show a success message
+  console.log('Form Data Submitted:', {
+    name: name,
+    email: email,
+    phone: phone,
+    subject: subject,
+    message: message
+  });
+  
+  // Show success message
+  const successMessage = document.getElementById('successMessage');
+  successMessage.classList.add('show');
+  
+  // Reset form
+  this.reset();
+  
+  // Hide success message after 5 seconds
+  setTimeout(() => {
+    successMessage.classList.remove('show');
+  }, 5000);
+  
+  // Scroll to success message
+  successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+// Phone number formatting
+document.getElementById('phone').addEventListener('input', function(e) {
+  let value = e.target.value.replace(/\D/g, '');
+  if (value.length > 0) {
+    if (!value.startsWith('880')) {
+      if (value.startsWith('0')) {
+        value = '880' + value.substring(1);
+      } else {
+        value = '880' + value;
+      }
+    }
+  }
+  e.target.value = value;
+});
+
+// Add animation on scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+// Observe all cards and sections
+document.querySelectorAll('.contact-card, .form-section, .map-section').forEach(el => {
+  observer.observe(el);
+});
+
+// স্ক্রল করলে হেডার স্টাইল পরিবর্তন
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  const currentScroll = window.pageYOffset;
+  
+  if (currentScroll > 100) {
+    header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.12)';
+  } else {
+    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+  }
+});
+
+// পেজ লোড হলে অ্যাকটিভ মেনু সেট করা
+window.addEventListener('load', function() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>

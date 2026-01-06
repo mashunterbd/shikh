@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>Photo Gallery - Shaikh Rabiul Alam</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ফন্ট লিংক -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome আইকন -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: #ffffff;
+  font-family: 'Noto Sans Bengali', sans-serif;
+  color: #111;
+  scroll-behavior: smooth;
+}
+
+/* ================= HEADER ================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.nav {
+  max-width: 1400px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 22px;
+  color: #0b5e3c;
+  letter-spacing: -0.5px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-menu li a:hover {
+  color: #0b5e3c;
+}
+
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #0b5e3c;
+  transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+/* MOBILE MENU TOGGLE */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: #0b5e3c;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* ===== PAGE TITLE ===== */
+.page-header {
+  background: linear-gradient(135deg, #0b5e3c 0%, #0a4d31 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.page-subtitle {
+  font-size: 18px;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===== Main Wrapper ===== */
+.wrapper {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 20px 40px;
+  min-height: 60vh;
+}
+
+/* ===== Album Grid ===== */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.album-card {
+  cursor: pointer;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  background: white;
+  border: 1px solid #f0f0f0;
+}
+
+.album-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border-color: #0b5e3c;
+}
+
+.album-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.album-card:hover img {
+  transform: scale(1.05);
+}
+
+.album-info {
+  padding: 20px;
+}
+
+.album-info h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.4;
+}
+
+.album-info span {
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.album-info span i {
+  color: #0b5e3c;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+  margin: 40px 0 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 10px 18px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 45px;
+  font-family: 'Noto Sans Bengali', sans-serif;
+}
+
+.pagination button:hover:not(.active):not(:disabled) {
+  background: #f5f5f5;
+  border-color: #0b5e3c;
+  color: #0b5e3c;
+}
+
+.pagination button.active {
+  background: #0b5e3c;
+  color: #fff;
+  border-color: #0b5e3c;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== Album View ===== */
+.album-view {
+  display: none;
+}
+
+.album-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.album-header h2 {
+  margin: 0;
+  font-size: 28px;
+  color: #0b5e3c;
+  flex-grow: 1;
+}
+
+.album-header button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #0b5e3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  font-family: 'Noto Sans Bengali', sans-serif;
+}
+
+.album-header button:hover {
+  background: #0a4d31;
+  transform: translateY(-2px);
+}
+
+.album-nav {
+  display: flex;
+  gap: 10px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.photo-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Lightbox ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+.lightbox img {
+  max-width: 85%;
+  max-height: 75%;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.lb-info {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  padding: 0 20px;
+}
+
+.lb-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.lb-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lb-prev {
+  left: 20px;
+}
+
+.lb-next {
+  right: 20px;
+}
+
+.lb-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.lb-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.lb-counter {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.loading i {
+  font-size: 48px;
+  color: #0b5e3c;
+  margin-bottom: 20px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-state i {
+  font-size: 64px;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.empty-state h3 {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: linear-gradient(135deg, #0b5e3c 0%, #0a4d31 100%);
+  color: #fff;
+  padding: 60px 24px 30px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-section h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.footer-section p {
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+/* Contact Info Styles */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.contact-item i {
+  width: 24px;
+  margin-right: 12px;
+  margin-top: 2px;
+  color: #fff;
+}
+
+.contact-item a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+/* Social Media Styles */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.social-link:hover {
+  background: #fff;
+  color: #0b5e3c;
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.social-link.facebook:hover { background: #1877f2; color: #fff; border-color: #1877f2; }
+.social-link.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; }
+.social-link.youtube:hover { background: #ff0000; color: #fff; border-color: #ff0000; }
+.social-link.tiktok:hover { background: #000; color: #fff; border-color: #69c9d0; }
+.social-link.twitter:hover { background: #000; color: #fff; border-color: #000; }
+
+/* Important Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-links a::before {
+  content: '▸';
+  margin-right: 8px;
+  transition: margin-right 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-links a:hover::before {
+  margin-right: 12px;
+}
+
+/* Whatsapp Emergency Button */
+.whatsapp-emergency {
+  display: inline-flex;
+  align-items: center;
+  background: #25d366;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-emergency i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.whatsapp-emergency:hover {
+  background: #20ba5a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+.footer-bottom .developer-credit {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 12px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* ট্যাবলেট */
+@media (max-width: 1024px) {
+  .album-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  
+  .page-title {
+    font-size: 32px;
+  }
+}
+
+/* মোবাইল */
+@media (max-width: 768px) {
+  /* হেডার রেসপন্সিভ */
+  .nav {
+    padding: 14px 20px;
+  }
+  
+  .logo {
+    font-size: 18px;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-menu.active {
+    max-height: 400px;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .nav-menu li a {
+    display: block;
+    padding: 16px 20px;
+  }
+  
+  .nav-menu li a::after {
+    display: none;
+  }
+  
+  /* পেজ হেডার */
+  .page-header {
+    padding: 40px 20px;
+  }
+  
+  .page-title {
+    font-size: 28px;
+  }
+  
+  .page-subtitle {
+    font-size: 16px;
+  }
+  
+  /* এলবাম গ্রিড */
+  .album-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .album-card img {
+    height: 200px;
+  }
+  
+  /* ফটো গ্রিড */
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+  }
+  
+  .photo-grid img {
+    height: 160px;
+  }
+  
+  /* এলবাম হেডার */
+  .album-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .album-header h2 {
+    font-size: 24px;
+  }
+  
+  .album-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .album-header button {
+    flex: 1;
+    text-align: center;
+  }
+  
+  /* লাইটবক্স */
+  .lightbox img {
+    max-width: 95%;
+    max-height: 65%;
+  }
+  
+  .lb-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  
+  .lb-prev {
+    left: 10px;
+  }
+  
+  .lb-next {
+    right: 10px;
+  }
+  
+  /* ফুটার */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* ছোট মোবাইল */
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 24px;
+  }
+  
+  .page-subtitle {
+    font-size: 15px;
+  }
+  
+  .wrapper {
+    padding: 0 15px 30px;
+  }
+  
+  .album-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  
+  .photo-grid img {
+    height: 140px;
+  }
+  
+  .pagination button {
+    padding: 8px 14px;
+    min-width: 40px;
+    font-size: 14px;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .whatsapp-emergency {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+  
+  .footer-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* খুব ছোট স্ক্রিন */
+@media (max-width: 360px) {
+  .album-card img {
+    height: 180px;
+  }
+  
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .photo-grid img {
+    height: 200px;
+  }
+  
+  .page-header {
+    padding: 30px 15px;
+  }
+  
+  .album-header h2 {
+    font-size: 22px;
+  }
+}
+</style>
+</head>
+
+<body>
+<!-- ================= HEADER ================= -->
+<header>
+  <nav class="nav">
+    <div class="logo">Shaikh Rabiul Alam</div>
+    
+    <!-- MOBILE MENU TOGGLE BUTTON -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <!-- মেনু লিংক -->
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">About Me</a></li>
+      <li><a href="/coverage.html">Media Coverage</a></li>
+      <li><a href="/gellary.html" class="active">Gallery</a></li>
+      <li><a href="/blogs.html">Blogs</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= PAGE HEADER ================= -->
+<div class="page-header">
+  <h1 class="page-title">ফটো গ্যালারি</h1>
+  <p class="page-subtitle">শেখ রাবিউল আলমের বিভিন্ন রাজনৈতিক, সামাজিক ও জনসভার মুহূর্তের ছবি সংকলন</p>
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
+<div class="wrapper">
+
+  <!-- ===== Album List ===== -->
+  <div id="albumList">
+    <!-- লোডিং স্টেট -->
+    <div id="loadingState" class="loading">
+      <i class="fas fa-spinner"></i>
+      <h3>গ্যালারি লোড হচ্ছে...</h3>
+      <p>অনুগ্রহ করে কিছুক্ষণ অপেক্ষা করুন</p>
+    </div>
+    
+    <div id="albumGrid" class="album-grid" style="display: none;"></div>
+    <div id="pagination" class="pagination" style="display: none;"></div>
+  </div>
+
+  <!-- ===== Album View ===== -->
+  <div id="albumView" class="album-view">
+    <div class="album-header">
+      <button onclick="backToAlbums()">
+        <i class="fas fa-arrow-left"></i> এলবামে ফিরে যান
+      </button>
+      <h2 id="albumTitle"></h2>
+      <div class="album-nav">
+        <button onclick="prevAlbum()">
+          <i class="fas fa-chevron-left"></i> আগের এলবাম
+        </button>
+        <button onclick="nextAlbum()">
+          পরের এলবাম <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+    <div id="photoGrid" class="photo-grid"></div>
+  </div>
+
+</div>
+
+<!-- ===== Lightbox ===== -->
+<div id="lightbox" class="lightbox">
+  <button class="lb-close" onclick="closeLB()">
+    <i class="fas fa-times"></i>
+  </button>
+  <button class="lb-btn lb-prev" onclick="prevImg()">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <img id="lbImg" alt="Gallery Image">
+  <button class="lb-btn lb-next" onclick="nextImg()">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+  <div class="lb-counter" id="lbCounter"></div>
+  <div class="lb-info" id="lbInfo"></div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="footer-container">
+    <div class="footer-grid">
+      
+      <!-- ABOUT SECTION -->
+      <div class="footer-section">
+        <h3>Shaikh Rabiul Alam</h3>
+        <p>
+          সদস্য জাতীয় নির্বাহী কমিটি – বিএনপি<br>
+          ঢাকা-১০ এর জনগণের সেবায় নিবেদিত
+        </p>
+        <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
+          © <span id="currentYear"></span> Shaikh Rabiul Alam<br>
+          All Rights Reserved
+        </p>
+      </div>
+
+      <!-- CONTACT SECTION -->
+      <div class="footer-section">
+        <h3>Contact</h3>
+        
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            Planners Tower, 3rd Floor<br>
+            1215 Dhaka, Bangladesh
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:shaikhrabiulalamofficial@gmail.com">
+            shaikhrabiulalamofficial@gmail.com
+          </a>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <a href="tel:+8801728555497">
+            +880 1728-555-497
+          </a>
+        </div>
+
+        <!-- হোয়াটসঅ্যাপ নম্বর (ইমারজেন্সি) -->
+        <a href="https://wa.me/8801728555497" target="_blank" class="whatsapp-emergency">
+          <i class="fab fa-whatsapp"></i>
+          Emergency WhatsApp
+        </a>
+      </div>
+
+      <!-- SOCIAL MEDIA SECTION -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <p style="margin-bottom: 16px;">আমাদের সাথে যুক্ত থাকুন সোশ্যাল মিডিয়ায়</p>
+        
+        <div class="social-links">
+          <a href="https://www.facebook.com/rabibnpofficials/" target="_blank" class="social-link facebook" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          
+          <a href="https://www.instagram.com/shaikhrabiulalam/" target="_blank" class="social-link instagram" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@shaikhrabiulalam" target="_blank" class="social-link youtube" title="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          
+          <a href="https://www.tiktok.com/@shaikhrabiulalam" target="_blank" class="social-link tiktok" title="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          
+          <a href="https://twitter.com/shaikhrabiulalam" target="_blank" class="social-link twitter" title="X (Twitter)">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- IMPORTANT LINKS SECTION -->
+      <div class="footer-section">
+        <h3>Important Links</h3>
+        
+        <ul class="footer-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About Me</a></li>
+          <li><a href="coverage.html">Media Coverage</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+      <p>
+        <i class="fas fa-heart" style="color: #ff6b6b;"></i> 
+        জনগণের সেবায় প্রতিশ্রুতিবদ্ধ
+      </p>
+      <p class="developer-credit">
+        Developed & Maintained with Care
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ================= HEADER JS =================
+// মোবাইল মেনু টগল ফাংশন
+function toggleMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('active');
+}
+
+// স্মুথ স্ক্রলিং
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && href !== '' && !href.includes('.html')) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        // মোবাইল মেনু বন্ধ করা
+        const navMenu = document.getElementById('navMenu');
+        if (navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+        }
+      }
+    }
+  });
+});
+
+// স্ক্রল করলে হেডার স্টাইল পরিবর্তন
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  const currentScroll = window.pageYOffset;
+  
+  if (currentScroll > 100) {
+    header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.12)';
+  } else {
+    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+  }
+});
+
+// ================= FOOTER JS =================
+// অটোমেটিক বর্তমান বছর আপডেট
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+// ================= GALLERY JS =================
+const ALBUMS_PER_PAGE = 9;
+let albums = [];
+let currentPage = 1;
+let currentAlbum = 0;
+let images = [];
+let imgIndex = 0;
+let albumTitle = '';
+
+/* Blogger Callback */
+function handleFeed(feed) {
+  const loadingState = document.getElementById('loadingState');
+  
+  if (!feed.feed.entry || feed.feed.entry.length === 0) {
+    loadingState.innerHTML = `
+      <div class="empty-state">
+        <i class="fas fa-images"></i>
+        <h3>কোন এলবাম পাওয়া যায়নি</h3>
+        <p>দুঃখিত, এই মুহূর্তে কোন ফটো এলবাম নেই। অনুগ্রহ করে পরে আবার চেষ্টা করুন।</p>
+      </div>
+    `;
+    return;
+  }
+  
+  feed.feed.entry.forEach(post => {
+    const imgs = [...post.content.$t.matchAll(/<img[^>]+src="([^">]+)"/g)].map(i => i[1]);
+    if (imgs.length) {
+      albums.push({
+        title: post.title.$t,
+        cover: imgs[0],
+        photos: imgs,
+        date: post.published ? new Date(post.published.$t).toLocaleDateString('bn-BD', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        }) : 'তারিখ নেই'
+      });
+    }
+  });
+  
+  // লোডিং স্টেট লুকানো
+  loadingState.style.display = 'none';
+  
+  // এলবাম গ্রিড এবং প্যাজিনেশন দেখানো
+  document.getElementById('albumGrid').style.display = 'grid';
+  document.getElementById('pagination').style.display = 'flex';
+  
+  renderAlbums();
+  
+  // URL হ্যাশ চেক করা
+  const hash = window.location.hash;
+  if (hash.startsWith('#album-')) {
+    const albumIndex = parseInt(hash.replace('#album-', ''));
+    if (albumIndex >= 0 && albumIndex < albums.length) {
+      openAlbum(albumIndex);
+    }
+  }
+}
+
+function renderAlbums() {
+  const start = (currentPage - 1) * ALBUMS_PER_PAGE;
+  const pageAlbums = albums.slice(start, start + ALBUMS_PER_PAGE);
+  const grid = document.getElementById("albumGrid");
+  
+  // যদি কোন এলবাম না থাকে
+  if (pageAlbums.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state" style="grid-column: 1 / -1;">
+        <i class="fas fa-images"></i>
+        <h3>এই পাতায় কোন এলবাম নেই</h3>
+        <p>অন্যান্য পাতা চেক করুন</p>
+      </div>
+    `;
+    return;
+  }
+  
+  grid.innerHTML = "";
+  
+  pageAlbums.forEach((a, i) => {
+    const index = start + i;
+    const div = document.createElement("div");
+    div.className = "album-card";
+    div.innerHTML = `
+      <img src="${a.cover}" alt="${a.title}" loading="lazy">
+      <div class="album-info">
+        <h3>${a.title}</h3>
+        <span>
+          <i class="far fa-images"></i>
+          ${a.photos.length} টি ছবি
+          <span style="margin-left: 10px;">
+            <i class="far fa-calendar-alt"></i>
+            ${a.date}
+          </span>
+        </span>
+      </div>
+    `;
+    div.onclick = () => openAlbum(index);
+    grid.appendChild(div);
+  });
+  
+  renderPagination();
+  resize();
+}
+
+function renderPagination() {
+  const totalPages = Math.ceil(albums.length / ALBUMS_PER_PAGE);
+  const p = document.getElementById("pagination");
+  
+  if (totalPages <= 1) {
+    p.style.display = 'none';
+    return;
+  }
+  
+  p.style.display = 'flex';
+  p.innerHTML = "";
+  
+  // Previous button
+  if (currentPage > 1) {
+    const prevBtn = document.createElement("button");
+    prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+    prevBtn.onclick = () => {
+      currentPage--;
+      renderAlbums();
+    };
+    p.appendChild(prevBtn);
+  }
+  
+  // Page numbers
+  for (let i = 1; i <= totalPages; i++) {
+    // শুধুমাত্র প্রথম, শেষ এবং বর্তমান পৃষ্ঠার কাছাকাছি পৃষ্ঠাগুলো দেখানো
+    if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+      const btn = document.createElement("button");
+      btn.textContent = i;
+      btn.className = i === currentPage ? 'active' : '';
+      btn.onclick = () => {
+        currentPage = i;
+        renderAlbums();
+      };
+      p.appendChild(btn);
+    } else if (i === currentPage - 2 || i === currentPage + 2) {
+      const dots = document.createElement("button");
+      dots.textContent = "...";
+      dots.disabled = true;
+      p.appendChild(dots);
+    }
+  }
+  
+  // Next button
+  if (currentPage < totalPages) {
+    const nextBtn = document.createElement("button");
+    nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+    nextBtn.onclick = () => {
+      currentPage++;
+      renderAlbums();
+    };
+    p.appendChild(nextBtn);
+  }
+}
+
+/* Album View */
+function openAlbum(i) {
+  currentAlbum = i;
+  const a = albums[i];
+  albumTitle = a.title;
+  
+  // URL আপডেট করা
+  window.location.hash = `album-${i}`;
+  
+  // ভিউ পরিবর্তন
+  document.getElementById("albumList").style.display = "none";
+  document.getElementById("albumView").style.display = "block";
+  document.getElementById("albumTitle").textContent = a.title;
+  
+  // ফটো গ্রিড তৈরি
+  const grid = document.getElementById("photoGrid");
+  grid.innerHTML = "";
+  
+  a.photos.forEach((p, idx) => {
+    const img = document.createElement("img");
+    img.src = p;
+    img.alt = `${a.title} - ছবি ${idx + 1}`;
+    img.loading = "lazy";
+    img.onclick = () => openLB(a.photos, idx, a.title);
+    
+    const container = document.createElement("div");
+    container.style.position = "relative";
+    container.appendChild(img);
+    
+    // ছবি নম্বর
+    const number = document.createElement("div");
+    number.style.position = "absolute";
+    number.style.top = "10px";
+    number.style.right = "10px";
+    number.style.background = "rgba(11, 94, 60, 0.8)";
+    number.style.color = "white";
+    number.style.padding = "4px 8px";
+    number.style.borderRadius = "4px";
+    number.style.fontSize = "12px";
+    number.style.fontWeight = "600";
+    number.textContent = idx + 1;
+    container.appendChild(number);
+    
+    grid.appendChild(container);
+  });
+  
+  resize();
+}
+
+function backToAlbums() {
+  // URL হ্যাশ রিমুভ করা
+  window.location.hash = '';
+  
+  document.getElementById("albumView").style.display = "none";
+  document.getElementById("albumList").style.display = "block";
+  resize();
+}
+
+function prevAlbum() {
+  if (currentAlbum > 0) {
+    openAlbum(currentAlbum - 1);
+  }
+}
+
+function nextAlbum() {
+  if (currentAlbum < albums.length - 1) {
+    openAlbum(currentAlbum + 1);
+  }
+}
+
+/* Lightbox */
+function openLB(arr, i, title) {
+  images = arr;
+  imgIndex = i;
+  albumTitle = title;
+  
+  const lbImg = document.getElementById("lbImg");
+  const lbCounter = document.getElementById("lbCounter");
+  const lbInfo = document.getElementById("lbInfo");
+  
+  lbImg.src = arr[i];
+  lbImg.alt = `${title} - ছবি ${i + 1}`;
+  lbCounter.textContent = `${i + 1} / ${arr.length}`;
+  lbInfo.textContent = title;
+  
+  document.getElementById("lightbox").style.display = "flex";
+  
+  // কিবোর্ড ইভেন্ট লিসেনার
+  document.addEventListener('keydown', handleKeyDown);
+}
+
+function closeLB() {
+  document.getElementById("lightbox").style.display = "none";
+  document.removeEventListener('keydown', handleKeyDown);
+}
+
+function prevImg() {
+  imgIndex = (imgIndex - 1 + images.length) % images.length;
+  updateLightbox();
+}
+
+function nextImg() {
+  imgIndex = (imgIndex + 1) % images.length;
+  updateLightbox();
+}
+
+function updateLightbox() {
+  const lbImg = document.getElementById("lbImg");
+  const lbCounter = document.getElementById("lbCounter");
+  
+  lbImg.src = images[imgIndex];
+  lbImg.alt = `${albumTitle} - ছবি ${imgIndex + 1}`;
+  lbCounter.textContent = `${imgIndex + 1} / ${images.length}`;
+}
+
+function handleKeyDown(e) {
+  switch(e.key) {
+    case 'ArrowLeft':
+      prevImg();
+      break;
+    case 'ArrowRight':
+      nextImg();
+      break;
+    case 'Escape':
+      closeLB();
+      break;
+  }
+}
+
+function resize() {
+  setTimeout(() => {
+    if (window.parent) {
+      window.parent.postMessage({ type: "resize-iframe", height: document.body.scrollHeight }, "*");
+    }
+  }, 50);
+}
+
+// হ্যাশ পরিবর্তন ইভেন্ট
+window.addEventListener("hashchange", function() {
+  const hash = window.location.hash;
+  if (hash.startsWith('#album-')) {
+    const albumIndex = parseInt(hash.replace('#album-', ''));
+    if (albumIndex >= 0 && albumIndex < albums.length) {
+      openAlbum(albumIndex);
+    }
+  } else if (hash === '') {
+    // হ্যাশ রিমুভ হলে এলবাম লিস্টে ফিরে যাওয়া
+    if (document.getElementById("albumView").style.display === "block") {
+      backToAlbums();
+    }
+  }
+});
+
+// প্রথম লোডে ইভেন্ট লিসেনার
+window.addEventListener('load', function() {
+  // মেনু আইটেমে অ্যাকটিভ ক্লাস যোগ করুন
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    }
+  });
+  
+  // উচ্চতা সেন্ড করুন
+  setTimeout(resize, 500);
+});
+
+// লাইটবক্সে ক্লিক করলে বন্ধ করা
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeLB();
+  }
+});
+</script>
+
+<!-- Blogger Feed -->
+<script src="https://photogallerydhaka10.blogspot.com/feeds/posts/default?alt=json-in-script&callback=handleFeed"></script>
+
+</body>
+</html>

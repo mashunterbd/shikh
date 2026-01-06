@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>Latest News</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ফন্ট লিংক -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome আইকন -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+*{box-sizing:border-box}
+
+html,body{
+  margin:0;
+  padding:0;
+  background:#ffffff;
+  font-family:'Noto Sans Bengali',sans-serif;
+  color:#111;
+  scroll-behavior: smooth;
+}
+
+/* ================= HEADER ================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.nav {
+  max-width: 1400px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 22px;
+  color: #0b5e3c;
+  letter-spacing: -0.5px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-menu li a:hover {
+  color: #0b5e3c;
+}
+
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #0b5e3c;
+  transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+/* MOBILE MENU TOGGLE */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: #0b5e3c;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Main container */
+.news-wrapper{
+  max-width:900px;
+  margin:0 auto;
+  padding:20px 16px;
+  min-height: 80vh;
+}
+
+/* Title */
+.news-title{
+  font-size:30px;
+  font-weight:700;
+  line-height:1.45;
+  margin:10px 0 20px;
+  color:#0b5e3c;
+}
+
+/* Image */
+.news-image img{
+  width:100%;
+  height:auto;
+  display:block;
+  margin:0 0 22px;
+  border:1px solid #e5e5e5;
+  border-radius:12px;
+  background:#fff;
+}
+
+/* Content */
+.news-content,
+.news-content *{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+
+.news-content{
+  font-size:16.5px;
+  line-height:1.95;
+  color:#222;
+}
+
+.news-content p{
+  margin:0 0 18px;
+}
+
+/* Related */
+.related-news{
+  margin-top:45px;
+  padding-top:25px;
+  border-top:1px solid #e5e5e5;
+}
+
+.related-news h4{
+  font-size:18px;
+  margin-bottom:14px;
+  color:#0b5e3c;
+}
+
+.related-news ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.related-news li{
+  margin-bottom:8px;
+  color:#0066cc;
+  cursor:pointer;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.related-news li:hover{
+  color:#0b5e3c;
+  padding-left: 8px;
+}
+
+/* Navigation */
+.news-nav{
+  display:flex;
+  gap:12px;
+  margin-top:36px;
+}
+
+.news-nav button{
+  flex:1;
+  background:#0b5e3c;
+  color:#fff;
+  border:none;
+  padding:12px;
+  font-size:14px;
+  cursor:pointer;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.news-nav button:hover{
+  background:#0a4d31;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: linear-gradient(135deg, #0b5e3c 0%, #0a4d31 100%);
+  color: #fff;
+  padding: 60px 24px 30px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-section h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.footer-section p {
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+/* Contact Info Styles */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.contact-item i {
+  width: 24px;
+  margin-right: 12px;
+  margin-top: 2px;
+  color: #fff;
+}
+
+.contact-item a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+/* Social Media Styles */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.social-link:hover {
+  background: #fff;
+  color: #0b5e3c;
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.social-link.facebook:hover { background: #1877f2; color: #fff; border-color: #1877f2; }
+.social-link.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; }
+.social-link.youtube:hover { background: #ff0000; color: #fff; border-color: #ff0000; }
+.social-link.tiktok:hover { background: #000; color: #fff; border-color: #69c9d0; }
+.social-link.twitter:hover { background: #000; color: #fff; border-color: #000; }
+
+/* Important Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-links a::before {
+  content: '▸';
+  margin-right: 8px;
+  transition: margin-right 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-links a:hover::before {
+  margin-right: 12px;
+}
+
+/* Whatsapp Emergency Button */
+.whatsapp-emergency {
+  display: inline-flex;
+  align-items: center;
+  background: #25d366;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-emergency i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.whatsapp-emergency:hover {
+  background: #20ba5a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+.footer-bottom .developer-credit {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 12px;
+}
+
+/* RESPONSIVE - MOBILE */
+@media (max-width: 768px) {
+  .nav {
+    padding: 14px 20px;
+  }
+  
+  .logo {
+    font-size: 18px;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-menu.active {
+    max-height: 400px;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .nav-menu li a {
+    display: block;
+    padding: 16px 20px;
+  }
+  
+  .nav-menu li a::after {
+    display: none;
+  }
+  
+  .news-title{font-size:24px}
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px){
+  .news-title{font-size:22px}
+  .news-content{font-size:15.5px}
+  
+  .news-nav{
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links {
+    justify-content: center;
+  }
+  
+  .whatsapp-emergency {
+    width: 100%;
+    justify-content: center;
+  }
+}
+</style>
+</head>
+
+<body>
+<!-- ================= HEADER ================= -->
+<header>
+  <nav class="nav">
+    <div class="logo">Shaikh Rabiul Alam</div>
+    
+    <!-- MOBILE MENU TOGGLE BUTTON -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <!-- চেঞ্জ করুন: মেনু লিংক গুলি -->
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="/coverage.html">Media Coverage</a></li>
+      <li><a href="/gellary.html">Gallery</a></li>
+      <li><a href="/blogs.html">Blogs</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= MAIN CONTENT ================= -->
+<div class="news-wrapper">
+  <div id="newsContainer">
+    <!-- ব্লগ কন্টেন্ট এখানে লোড হবে -->
+    <div style="text-align: center; padding: 50px 20px; color: #666;">
+      <i class="fas fa-spinner fa-spin fa-3x" style="color: #0b5e3c; margin-bottom: 20px;"></i>
+      <p>ব্লগ লোড হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="footer-container">
+    <div class="footer-grid">
+      
+      <!-- ABOUT SECTION -->
+      <div class="footer-section">
+        <h3>Shaikh Rabiul Alam</h3>
+        <p>
+          সদস্য জাতীয় নির্বাহী কমিটি – বিএনপি<br>
+          ঢাকা-১০ এর জনগণের সেবায় নিবেদিত
+        </p>
+        <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
+          © <span id="currentYear"></span> Shaikh Rabiul Alam<br>
+          All Rights Reserved
+        </p>
+      </div>
+
+      <!-- CONTACT SECTION -->
+      <div class="footer-section">
+        <h3>Contact</h3>
+        
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            Planners Tower, 3rd Floor<br>
+            1215 Dhaka, Bangladesh
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:shaikhrabiulalamofficial@gmail.com">
+            shaikhrabiulalamofficial@gmail.com
+          </a>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <a href="tel:+8801728555497">
+            +880 1728-555-497
+          </a>
+        </div>
+
+        <!-- হোয়াটসঅ্যাপ নম্বর (ইমারজেন্সি) -->
+        <a href="https://wa.me/8801728555497" target="_blank" class="whatsapp-emergency">
+          <i class="fab fa-whatsapp"></i>
+          Emergency WhatsApp
+        </a>
+      </div>
+
+      <!-- SOCIAL MEDIA SECTION -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <p style="margin-bottom: 16px;">আমাদের সাথে যুক্ত থাকুন সোশ্যাল মিডিয়ায়</p>
+        
+        <div class="social-links">
+          <a href="https://www.facebook.com/rabibnpofficials/" target="_blank" class="social-link facebook" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          
+          <a href="https://www.instagram.com/shaikhrabiulalam/" target="_blank" class="social-link instagram" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@shaikhrabiulalam" target="_blank" class="social-link youtube" title="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          
+          <a href="https://www.tiktok.com/@shaikhrabiulalam" target="_blank" class="social-link tiktok" title="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          
+          <a href="https://twitter.com/shaikhrabiulalam" target="_blank" class="social-link twitter" title="X (Twitter)">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- IMPORTANT LINKS SECTION -->
+      <div class="footer-section">
+        <h3>Important Links</h3>
+        
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/index.html">About Me</a></li>
+          <li><a href="/coverage.html">Media Coverage</a></li>
+          <li><a href="/gellary.html">Gallery</a></li>
+          <li><a href="/blogs.html">Blogs</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+      <p>
+        <i class="fas fa-heart" style="color: #ff6b6b;"></i> 
+        জনগণের সেবায় প্রতিশ্রুতিবদ্ধ
+      </p>
+      <p class="developer-credit">
+        Developed & Maintained with Care
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ================= HEADER JS =================
+// মোবাইল মেনু টগল ফাংশন
+function toggleMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('active');
+}
+
+// স্মুথ স্ক্রলিং
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && href !== '') {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        // মোবাইল মেনু বন্ধ করা
+        const navMenu = document.getElementById('navMenu');
+        if (navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+        }
+      }
+    }
+  });
+});
+
+// স্ক্রল করলে হেডার স্টাইল পরিবর্তন
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  const currentScroll = window.pageYOffset;
+  
+  if (currentScroll > 100) {
+    header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.12)';
+  } else {
+    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+  }
+  
+  lastScroll = currentScroll;
+});
+
+// ================= FOOTER JS =================
+// অটোমেটিক বর্তমান বছর আপডেট
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+// ================= BLOG JS =================
+let posts = [];
+let currentIndex = 0;
+
+/* Blogger JSONP callback */
+function handleFeed(feed){
+  posts = feed.feed.entry || [];
+  if(!posts.length){
+    document.getElementById("newsContainer").innerHTML = `
+      <div style="text-align: center; padding: 50px 20px;">
+        <i class="fas fa-exclamation-triangle fa-3x" style="color: #e74c3c; margin-bottom: 20px;"></i>
+        <h2 style="color: #0b5e3c;">কোন ব্লগ পাওয়া যায়নি</h2>
+        <p>দুঃখিত, এই মুহূর্তে কোন ব্লগ পোস্ট নেই। অনুগ্রহ করে পরে আবার চেষ্টা করুন।</p>
+      </div>
+    `;
+    return;
+  }
+  renderPost(0); // সর্বশেষ পোস্ট প্রথমে দেখাবে
+}
+
+/* Render single post */
+function renderPost(index){
+  currentIndex = index;
+  const post = posts[index];
+
+  const title = post.title.$t;
+  let content = post.content.$t;
+
+  const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
+  const image = imgMatch ? imgMatch[1] : "";
+
+  content = content.replace(/<img[^>]*>/g,"");
+
+  document.getElementById("newsContainer").innerHTML = `
+    <div class="news-title">${title}</div>
+    ${image ? `<div class="news-image"><img src="${image}" alt="${title}"></div>` : ""}
+    <div class="news-content">${content}</div>
+
+    <div class="related-news">
+      <h4>আরও সংবাদ</h4>
+      <ul>
+        ${
+          posts
+            .map((p,i)=>({p,i}))
+            .filter(item=>item.i!==index)
+            .slice(0,5)   // শুধুমাত্র সর্বশেষ ৫টি
+            .map(item =>
+              `<li onclick="renderPost(${item.i})">${item.p.title.$t}</li>`
+            ).join("")
+        }
+      </ul>
+    </div>
+
+    <div class="news-nav">
+      <button onclick="prevPost()">⬅ আগের নিউজ</button>
+      <button onclick="nextPost()">পরের নিউজ ➡</button>
+    </div>
+  `;
+
+  setTimeout(sendHeight,100);
+}
+
+/* Navigation */
+function prevPost(){
+  if(currentIndex>0) renderPost(currentIndex-1);
+}
+
+function nextPost(){
+  if(currentIndex<posts.length-1) renderPost(currentIndex+1);
+}
+
+/* iframe auto height */
+function sendHeight(){
+  const h=document.documentElement.scrollHeight;
+  if(window.parent){
+    window.parent.postMessage({type:"resize-iframe",height:h},"*");
+  }
+}
+
+const observer=new MutationObserver(sendHeight);
+observer.observe(document.body,{childList:true,subtree:true});
+
+// প্রথম লোডে উচ্চতা পাঠানো
+window.addEventListener('load', function() {
+  setTimeout(sendHeight, 500);
+});
+</script>
+
+<!-- Blogger Feed (latest first by default) -->
+<script src="https://bestnewsblogsdhaka.blogspot.com/feeds/posts/default?alt=json-in-script&callback=handleFeed"></script>
+
+</body>
+</html>
